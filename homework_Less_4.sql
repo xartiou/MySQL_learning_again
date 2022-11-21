@@ -5,14 +5,17 @@ USE vk;
 
 SELECT DISTINCT firstname FROM users ORDER BY firstname;
 
+	-- var2
+SELECT firstname FROM users GROUP BY firstname ORDER BY firstname;
+
 -- 3.Первые пять пользователей пометить как удаленные.
-SELECT id, is_deleted FROM users WHERE id LIMIT 5;
-UPDATE users SET is_deleted = 1 WHERE id LIMIT 5;
+SELECT id, is_deleted FROM users LIMIT 5;
+UPDATE users SET is_deleted = 1  LIMIT 5;
 
 -- 4.Написать скрипт, удаляющий сообщения «из будущего» (дата больше сегодняшней).
 -- из таблицы messages если создание(created_at) больше чем сегодняшняя дата (CURRENT_TIMESTAMP)
 select created_at from messages;
-DELETE FROM messages WHERE created_at > current_timestamp; 
+DELETE FROM messages WHERE created_at > NOW(); 
 -- Написать название темы курсового проекта.
 
 
